@@ -81,6 +81,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const stealthToggle = document.getElementById('stealthToggle');
     const bloodInput = document.getElementById('bloodGroup');
     const allergiesInput = document.getElementById('allergies');
+    const changeZoneBtn = document.getElementById('changeZoneBtn');
+    if (changeZoneBtn) {
+        changeZoneBtn.addEventListener('click', () => {
+            localStorage.removeItem('vgn_active_lga'); // Wipe old location selection
+            document.getElementById('lgaModal').classList.add('active'); // re-open popup grid selector
+        });
+    }
     
     // Modal Selectors
     const lgaModal = document.getElementById('lgaModal');
