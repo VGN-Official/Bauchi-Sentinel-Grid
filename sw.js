@@ -1,4 +1,4 @@
-const CACHE_NAME = 'Bauchi-suphi--Sentinel Grid-v1';
+const CACHE_NAME = 'Suphi Sentinel Grid-v1';
 const ASSETS_TO_CACHE = [
   './',
   './index.html',
