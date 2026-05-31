@@ -82,6 +82,22 @@ document.addEventListener('DOMContentLoaded', () => {
     const bloodInput = document.getElementById('bloodGroup');
     const allergiesInput = document.getElementById('allergies');
     
+    const triggerChangeZone = document.getElementById('triggerChangeZone');
+
+if (triggerChangeZone) {
+    triggerChangeZone.addEventListener('click', (e) => {
+        e.preventDefault(); // Prevents any unexpected form submissions
+        
+        // Wipe the old location selection from local memory
+        localStorage.removeItem('vgn_active_lga'); 
+        
+        // Unhide the selection popup modal instantly
+        const modal = document.getElementById('lgaModal');
+        if (modal) {
+            modal.classList.add('active'); 
+        }
+    });
+}
     // Modal Selectors
     const lgaModal = document.getElementById('lgaModal');
     const confirmLgaBtn = document.getElementById('confirmLgaBtn');
