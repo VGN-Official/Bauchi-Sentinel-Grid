@@ -37,7 +37,11 @@ const BauchiSecurityRegistry = {
 
 const smsUrlBuilder = (number, body) => {
     const cleanNumber = number.replace(/\s+/g, '');
-    return `sms:${cleanNumber || "+2348151849417"}?body=${encodeURIComponent(body)}`;
+    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) || 
+                  (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+    const separator = isIOS ? ';' : '?';
+    const encodedBody = encodeURIComponent(body);
+    return `sms:${cleanNumber || "+2348151849417"}${separator}body=${encodedBody}`;
 };
 
 const showSmsButton = (body, specificLgaNumber) => {
